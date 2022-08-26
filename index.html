@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hvordan sette opp en server – ubuntu server</title>
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="ubuntu server » Feed" href="http://139.98.34.212/wordpress/index.php/feed/">
+<link rel="alternate" type="application/rss+xml" title="ubuntu server » Comments Feed" href="http://139.98.34.212/wordpress/index.php/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="ubuntu server » Hvordan sette opp en server Comments Feed" href="http://139.98.34.212/wordpress/index.php/2021/11/30/hello-world/feed/">
+		<script>
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/139.98.34.212\/wordpress\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8.2"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Hvordan sette opp en server – ubuntu server_files/wp-emoji-release.min.js.last ned" type="text/javascript" defer=""></script>
+		<style>
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="./Hvordan sette opp en server – ubuntu server_files/style.min.css" media="all">
+<style id="wp-block-library-theme-inline-css">
+#start-resizable-editor-section{display:none}.wp-block-audio figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-audio figcaption{color:hsla(0,0%,100%,.65)}.wp-block-code{font-family:Menlo,Consolas,monaco,monospace;color:#1e1e1e;padding:.8em 1em;border:1px solid #ddd;border-radius:4px}.wp-block-embed figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-embed figcaption{color:hsla(0,0%,100%,.65)}.blocks-gallery-caption{color:#555;font-size:13px;text-align:center}.is-dark-theme .blocks-gallery-caption{color:hsla(0,0%,100%,.65)}.wp-block-image figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-image figcaption{color:hsla(0,0%,100%,.65)}.wp-block-pullquote{border-top:4px solid;border-bottom:4px solid;margin-bottom:1.75em;color:currentColor}.wp-block-pullquote__citation,.wp-block-pullquote cite,.wp-block-pullquote footer{color:currentColor;text-transform:uppercase;font-size:.8125em;font-style:normal}.wp-block-quote{border-left:.25em solid;margin:0 0 1.75em;padding-left:1em}.wp-block-quote cite,.wp-block-quote footer{color:currentColor;font-size:.8125em;position:relative;font-style:normal}.wp-block-quote.has-text-align-right{border-left:none;border-right:.25em solid;padding-left:0;padding-right:1em}.wp-block-quote.has-text-align-center{border:none;padding-left:0}.wp-block-quote.is-large,.wp-block-quote.is-style-large{border:none}.wp-block-search .wp-block-search__label{font-weight:700}.wp-block-group.has-background{padding:1.25em 2.375em;margin-top:0;margin-bottom:0}.wp-block-separator{border:none;border-bottom:2px solid;margin-left:auto;margin-right:auto;opacity:.4}.wp-block-separator:not(.is-style-wide):not(.is-style-dots){width:100px}.wp-block-separator.has-background:not(.is-style-dots){border-bottom:none;height:1px}.wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots){height:2px}.wp-block-table thead{border-bottom:3px solid}.wp-block-table tfoot{border-top:3px solid}.wp-block-table td,.wp-block-table th{padding:.5em;border:1px solid;word-break:normal}.wp-block-table figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-table figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-video figcaption{color:hsla(0,0%,100%,.65)}.wp-block-template-part.has-background{padding:1.25em 2.375em;margin-top:0;margin-bottom:0}#end-resizable-editor-section{display:none}
+</style>
+<link rel="stylesheet" id="twenty-twenty-one-style-css" href="./Hvordan sette opp en server – ubuntu server_files/style.css" media="all">
+<style id="twenty-twenty-one-style-inline-css">
+:root{--global--color-background: #685884;--global--color-primary: #fff;--global--color-secondary: #fff;--button--color-background: #fff;--button--color-text-hover: #fff;--table--stripes-border-color: rgba(240, 240, 240, 0.15);--table--stripes-background-color: rgba(240, 240, 240, 0.15);}
+</style>
+<link rel="stylesheet" id="twenty-twenty-one-print-style-css" href="./Hvordan sette opp en server – ubuntu server_files/print.css" media="print">
+<link rel="https://api.w.org/" href="http://139.98.34.212/wordpress/index.php/wp-json/"><link rel="alternate" type="application/json" href="http://139.98.34.212/wordpress/index.php/wp-json/wp/v2/posts/1"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://139.98.34.212/wordpress/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://139.98.34.212/wordpress/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.8.2">
+<link rel="canonical" href="http://139.98.34.212/wordpress/index.php/2021/11/30/hello-world/">
+<link rel="shortlink" href="http://139.98.34.212/wordpress/?p=1">
+<link rel="alternate" type="application/json+oembed" href="http://139.98.34.212/wordpress/index.php/wp-json/oembed/1.0/embed?url=http%3A%2F%2F139.98.34.212%2Fwordpress%2Findex.php%2F2021%2F11%2F30%2Fhello-world%2F">
+<link rel="pingback" href="http://139.98.34.212/wordpress/xmlrpc.php"><style id="custom-background-css">
+body.custom-background { background-color: #685884; }
+</style>
+	</head>
+
+<body class="post-template-default single single-post postid-1 single-format-standard custom-background wp-embed-responsive is-dark-theme singular">
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="http://139.98.34.212/wordpress/index.php/2021/11/30/hello-world/#content">Skip to content</a>
+
+	
+<header id="masthead" class="site-header has-title-and-tagline" role="banner">
+
+	
+
+<div class="site-branding">
+
+	
+						<p class="site-title"><a href="http://139.98.34.212/wordpress/">ubuntu server</a></p>
+			
+			<p class="site-description">
+			En av de beste bruksanvisningene du kommer til å se.		</p>
+	</div><!-- .site-branding -->
+	
+
+</header><!-- #masthead -->
+
+	<div id="content" class="site-content">
+		<div id="primary" class="content-area">
+			<main id="main" class="site-main" role="main">
+
+<article id="post-1" class="post-1 post type-post status-publish format-standard hentry category-uncategorized entry">
+
+	<header class="entry-header alignwide">
+		<h1 class="entry-title">Hvordan sette opp en server</h1>			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		
+<p class="has-large-font-size"><strong>En server er en spesialisert datamaskin som har alt sin behandling og harddisk resurser dedikert til en bestemt funksjon, som den fullfører mange ganger. Du kan bruke en server til å regulere Internett-trafikk mellom alle datamaskinene på nettverket.   </strong></p>
+
+
+
+<figure class="wp-block-image"><img src="./Hvordan sette opp en server – ubuntu server_files/1f64572c5a4d6e805fb4e1f8fe14a4bc.jpg" alt="Dedicated server 2 Cores, 4GB ram Paris or Amsterdam for $24 - SEOClerks"></figure>
+
+
+
+<p class="has-normal-font-size"><strong>I denne bruksanvisning får du vite hvordan du setter opp Ubuntu 20.04, uten å ha noe kunnskap om det fra før av.</strong></p>
+
+
+
+<div style="height:74px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p class="has-extra-large-font-size"><strong>Steg 1) Bygg sammen serveren.</strong></p>
+
+
+
+<ul><li>Åpner kabinettet.</li><li>Sett inn Hovedkortet</li><li><strong>GPU</strong> sitter i hovedkortet.</li><li>På <strong>hovedkortet</strong> fester du:</li><li><strong>RAM, CPU, CPU kjøler, SSD, PSU</strong>.</li></ul>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img loading="lazy" src="./Hvordan sette opp en server – ubuntu server_files/image-3.png" alt="" class="wp-image-41" width="603" height="452"></figure>
+
+
+
+<div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p class="has-extra-large-font-size"><strong>Steg 2) Sett opp en minnepinne med Ubuntu server.</strong></p>
+
+
+
+<figure class="wp-block-image"><img src="./Hvordan sette opp en server – ubuntu server_files/image_2021-12-09_092020.png" alt=""></figure>
+
+
+
+<ul><li>Du setter en minnepinne i pc-en</li><li>Du bruker <strong>rufus </strong>(det må man laste ned)</li><li>Laster ned fra denne nettsiden: <a href="https://ubuntu.com/">Ubuntu</a></li><li>Så overfører du det du lasta ned, til minnepinnen. </li><li>Etter det tar du minnepinnen i serveren.</li><li>Da burde du få opp dette.</li></ul>
+
+
+
+<div style="height:66px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p class="has-large-font-size">Sette opp selve grunninnstillingene på serveren </p>
+
+
+
+<figure class="wp-block-image"><img src="./Hvordan sette opp en server – ubuntu server_files/vJ7A4qdS.PNG" alt="Installasjonsveiledersteg med spørsmål om oppdatering til ny installer-versjon. Skjermbilde fra Ubuntu Server 20.04"></figure>
+
+
+
+<ul><li>Hvis serveren din er koblet til nett, får du denne siden opp. Hvis ikke hopper den over dette. Men hvis du får opp denne siden velger du <strong>“update to the new installer”</strong></li><li>Etter dette kommer du til å velge språk og tastatur oppsett. Der kan du velge hvilket språk du vil. </li><li>Etter du har valgt språk får du flere sider opp, hvor du trykker “<strong>done</strong>“/går videre. </li></ul>
+
+
+
+<figure class="wp-block-image"><img src="./Hvordan sette opp en server – ubuntu server_files/r7Jp8Ewa.PNG" alt="Veilederside med tekstfelt som kan brukes hvis det skal brukes en proxy. Skjermbilde fra Ubuntu Server 20.04"></figure>
+
+
+
+<ul><li>Når du kommer til “<strong>proxy serve</strong>r”, er dette ikke nødvendig å ha med. så du går bare vider uten å fylle ut noe. </li><li>Trykk “<strong>done</strong>” igjen, helt til at du kommer hit:</li></ul>
+
+
+
+<figure class="wp-block-image"><img src="./Hvordan sette opp en server – ubuntu server_files/GX7vkspQ.PNG" alt="Seks tekstfelt for oppsett av administratorbruker og maskinnavn. Skjermbilde fra Ubuntu Server 20.04"></figure>
+
+
+
+<ul><li>Når du kommer til denne siden kan du lage dit eget navn, server navn, brukernavn og passord. <strong>Dette må du huske på</strong>, så det er lurt å velge noe som er lett å huske.</li><li>Trykk “<strong>done</strong>“.</li></ul>
+
+
+
+<figure class="wp-block-image"><img src="./Hvordan sette opp en server – ubuntu server_files/s6zFfmUb.PNG" alt="Avkrysningsboks for om SSH server skal installeres og aktiveres. Skjermbilde fra Ubuntu Server 20.04"></figure>
+
+
+
+<div style="height:58px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p class="has-extra-large-font-size"><strong>steg 3) Installerer SSH</strong></p>
+
+
+
+<ul><li>Når du kommer til denne siden, velger du å installere <strong>SSH</strong>, det gjør Du ved å sette kryss som vist på bilde.</li><li>Trykk “<strong>done</strong>“.</li></ul>
+
+
+
+<figure class="wp-block-image"><img src="./Hvordan sette opp en server – ubuntu server_files/oS33OBbm.PNG" alt="Liste over programmer/funksjoner som kan installeres, avkrysningsruter for hver linje. Skjermbilde fra Ubuntu Server 20.04"></figure>
+
+
+
+<ul><li>Denne siden hopper du bare over.</li><li>Bare gå videre uten å trykke noe.</li></ul>
+
+
+
+<figure class="wp-block-image is-resized"><img loading="lazy" src="./Hvordan sette opp en server – ubuntu server_files/EFimQeWs.PNG" alt="Liste over stegene som er gjennomført i installasjonen. Skjermbilde fra Ubuntu Server 20.04" width="610" height="474"></figure>
+
+
+
+<p><strong>Nå vil den installere, vent til installasjonen er ferdig.</strong></p>
+
+
+
+<figure class="wp-block-image"><img src="./Hvordan sette opp en server – ubuntu server_files/pCkTirJj.PNG" alt="Valget &quot;Reboot&quot; er synlig på bunnen av skjermen. Skjermbilde fra Ubuntu Server 20.04"></figure>
+
+
+
+<p><strong>Velg “Reboot”</strong>. Nå er installasjonen ferdig.</p>
+
+
+
+<div style="height:61px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p class="has-extra-large-font-size"><strong>steg 4) Sette opp statisk IP</strong></p>
+
+
+
+<p>Nå skal du sette opp statisk IP, se denne <a href="https://www.youtube.com/watch?v=WQyoA35jq24&amp;t=92s">videoen</a>.</p>
+
+
+
+<ul><li>Først må du finne IP-en din. da skriver du “<strong>ip a</strong>“. </li><li>Da burde noe som dette komme opp. </li><li>Hvor det er outlined er viktig å merke seg. (den er forskjellig for alle).</li></ul>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" width="729" height="248" src="./Hvordan sette opp en server – ubuntu server_files/Capture.png" alt="" class="wp-image-30"></figure>
+
+
+
+<ul><li>Etter det skriver du inn koden </li></ul>
+
+
+
+<pre class="wp-block-code"><code> sudo nano /etc/cloud/cloud.cfg.d/subiquity-disable-cloutinit-networking.cfg                                                                                                                                                                                                                                                                                                                                                                                                             </code></pre>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img loading="lazy" src="./Hvordan sette opp en server – ubuntu server_files/image.png" alt="" class="wp-image-33" width="480" height="146"></figure>
+
+
+
+<p>eEtter du har skrevet inn den koden kommer det opp^</p>
+
+
+
+<p>Pass på at det står “<strong>disabled</strong>“</p>
+
+
+
+<pre class="wp-block-code"><code>sudo nano /etc/netplan/00-installer-config.yaml</code></pre>
+
+
+
+<p>Da kommer noe som dette. Du skal bytte til hva du selv har.</p>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img loading="lazy" src="./Hvordan sette opp en server – ubuntu server_files/image-1.png" alt="" class="wp-image-34" width="609" height="217"></figure>
+
+
+
+<p>Lagre koden</p>
+
+
+
+<p>For å teste om koden virker skriver du denne koden.</p>
+
+
+
+<pre class="wp-block-code"><code>sudo netplan apply</code></pre>
+
+
+
+<p>Og så for å starte på nytt, skriv denne koden:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo reboot</code></pre>
+
+
+
+<p>Nå har du statisk IP og kan gå videre til brannmur</p>
+
+
+
+<div style="height:60px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p class="has-extra-large-font-size"><strong>Steg 5) Sette opp brannmur</strong></p>
+
+
+
+<p>Først så kan du sjekke hvis du allerede har brannmur med denne koden:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo ufw status</code></pre>
+
+
+
+<p>Denne koden er for å muliggjøre </p>
+
+
+
+<pre class="wp-block-code"><code>sudo ufw enable</code></pre>
+
+
+
+<p>Nå burde brannmur være innstalert.</p>
+
+
+
+<div style="height:56px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<figure class="wp-block-image is-resized"><img loading="lazy" src="./Hvordan sette opp en server – ubuntu server_files/images" alt="Fil:Apache Software Foundation Logo (2016).svg – Wikipedia" width="610" height="298"></figure>
+
+
+
+<p class="has-extra-large-font-size"><strong>Steg 6) Sette opp Apache </strong></p>
+
+
+
+<p>Nå installerer vi Apache. første koden er:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo apt-get install apache2
+</code></pre>
+
+
+
+<p>Trykk “Y” og ENTER for å tillate installasjonen.</p>
+
+
+
+<p>Sjekk om Apache er installert riktig med denne koden:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo service apache2 status
+</code></pre>
+
+
+
+<figure class="wp-block-image"><img src="./Hvordan sette opp en server – ubuntu server_files/active-running-output-lamp-ubuntu-stack.png" alt="Apache is active and running in Ubuntu."></figure>
+
+
+
+<p>Dette er hva du burde se hvis det ble gjort riktig.</p>
+
+
+
+<ul><li>FOR Å KOMME SEG UT TRYKK “Q”</li></ul>
+
+
+
+<p>For å sjekke om brannmuren virker med Apache skriver du:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo ufw app list
+</code></pre>
+
+
+
+<p>For å sikre at Apache kjører, skriv inn IP-adressen til serveren din i adressefeltet og trykk ENTER. da burde det se sån ut:</p>
+
+
+
+<figure class="wp-block-image"><img src="./Hvordan sette opp en server – ubuntu server_files/apache2-ubunutu-default-page.png" alt="Default Apache Ubuntu page."></figure>
+
+
+
+<div style="height:57px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img loading="lazy" src="./Hvordan sette opp en server – ubuntu server_files/image-4.png" alt="" class="wp-image-43" width="611" height="255"></figure>
+
+
+
+<p class="has-extra-large-font-size"><strong>Steg 7) Sette opp MySQL</strong></p>
+
+
+
+<p>Først så må vi lage en database</p>
+
+
+
+<p>Skriv denne koden:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo apt-get install mysql-server
+</code></pre>
+
+
+
+<p>Trykk på “Y” for å godkjenne installasjonen </p>
+
+
+
+<pre class="wp-block-code"><code>mysql_secure_installation
+</code></pre>
+
+
+
+<p>Trykk “Y” for å lagre når det kommer opp.</p>
+
+
+
+<p>etter du har installert skal du lage en bruker, da skriver du først denne kommandoen.</p>
+
+
+
+<pre class="wp-block-code"><code>sudo mysql</code></pre>
+
+
+
+<p>skriv dette med dit brukernavn (username). Du skal fortsatt ha “@localhost” bak.</p>
+
+
+
+<pre class="wp-block-code"><code>mysql&gt; CREATE USER username@localhost IDENTIFIED BY password;
+</code></pre>
+
+
+
+<p>Nå skal du gi tilgang til den brukeren du laget.</p>
+
+
+
+<pre class="wp-block-code"><code>mysql&gt; GRANT ALL PRIVILEGES ON *.* TO username@localhost WITH GRANT OPTION;
+</code></pre>
+
+
+
+<p>skriv denne koden for å lagre</p>
+
+
+
+<pre class="wp-block-code"><code>mysql&gt; FLUSH PRIVILEGES;
+</code></pre>
+
+
+
+<p>nå kan du exite MySQL.</p>
+
+
+
+<div style="height:57px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img loading="lazy" src="./Hvordan sette opp en server – ubuntu server_files/image-5.png" alt="" class="wp-image-44" width="608" height="330"></figure>
+
+
+
+<p class="has-extra-large-font-size"><strong>Steg 8) Sette opp PHP</strong></p>
+
+
+
+<p>For å installere PHP skriver du denne kommandoen. </p>
+
+
+
+<pre class="wp-block-code"><code>sudo apt-get install php libapache2-mod-php php-mysql 
+</code></pre>
+
+
+
+<p>Press “Y” for å tillate installasjonen.</p>
+
+
+
+<p>Etter bør du endre måten Apache sender filer på. Som standard ser Apache først etter <strong>index.html</strong>. Vi vil for nå at den skal se etter <strong>index.php</strong> i stedet. </p>
+
+
+
+<p>For å bytte dette, åpner du dir.conf, med root privilegier. med denne kommandoen:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo nano /etc/apache2/mods-enabled/dir.conf</code></pre>
+
+
+
+<p>Da ser du dette:</p>
+
+
+
+<figure class="wp-block-image"><img src="./Hvordan sette opp en server – ubuntu server_files/index-php-directoy-index-ubuntu.png" alt="PHP directory index Ubuntu."></figure>
+
+
+
+<p>Du skal velge index.php.</p>
+
+
+
+<figure class="wp-block-image"><img src="./Hvordan sette opp en server – ubuntu server_files/php-index-file-position.png" alt="Change PHP index file position."></figure>
+
+
+
+<p>Trykk CTRL + X for å lagre. Og “y” for å bekrefte </p>
+
+
+
+<p>Restart Apache </p>
+
+
+
+<pre class="wp-block-code"><code>sudo systemctl restart apache2</code></pre>
+
+
+
+<p>Neste er WordPress. </p>
+
+
+
+<div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img loading="lazy" src="./Hvordan sette opp en server – ubuntu server_files/image-6.png" alt="" class="wp-image-45" width="609" height="320"></figure>
+
+
+
+<p class="has-extra-large-font-size"><strong>Steg 9) sette opp wordpress</strong></p>
+
+
+
+<p>For å installere wordpress bruker du først denne kommandoen:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo mkdir -p /srv/www
+sudo chown www-data: /srv/www
+curl https://wordpress.org/latest.tar.gz | sudo -u www-data tar zx -C /srv/www</code></pre>
+
+
+
+<p>Neste kommando er:</p>
+
+
+
+<pre class="wp-block-code"><code>&lt;VirtualHost *:80&gt;
+    DocumentRoot /srv/www/wordpress
+    &lt;Directory /srv/www/wordpress&gt;
+        Options FollowSymLinks
+        AllowOverride Limit Options FileInfo
+        DirectoryIndex index.php
+        Require all granted
+    &lt;/Directory&gt;
+    &lt;Directory /srv/www/wordpress/wp-content&gt;
+        Options FollowSymLinks
+        Require all granted
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;</code></pre>
+
+
+
+<p>For å muliggjøre siden med:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo a2ensite wordpress</code></pre>
+
+
+
+<p>Aktiver URL-en med:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo a2enmod rewrite
+</code></pre>
+
+
+
+<p>Deaktiver standard nettstedet med:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo a2dissite 000-default</code></pre>
+
+
+
+<p>Nå laster du inn Apache på nytt for å bruke alle disse endringene:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo service apache2 reload
+</code></pre>
+
+
+
+<p>Nå skriver du inn DIN IP-adresse i adressefeltet + /wordpress</p>
+
+
+
+<p>Da burde du komme til noe som dette:</p>
+
+
+
+<figure class="wp-block-image"><img src="./Hvordan sette opp en server – ubuntu server_files/wp-config-frontend.jpg" alt="15 wp-config Snippets to Configure WordPress Site - Hongkiat"></figure>
+
+
+
+<p>her skriver du inn: nettside navnet, brukernavn, passord, database vert.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" width="617" height="262" src="./Hvordan sette opp en server – ubuntu server_files/image-2.png" alt="" class="wp-image-40"></figure>
+
+
+
+<p> her skriver du inn hva du vil siden skal hete, brukernavn, passord og E-mail.</p>
+
+
+
+<div style="height:49px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<figure class="wp-block-image size-full is-resized"><img loading="lazy" src="./Hvordan sette opp en server – ubuntu server_files/image-7.png" alt="" class="wp-image-48" width="414" height="414"></figure>
+
+
+
+<p class="has-extra-large-font-size"><strong>Steg 10) Sette opp FTP</strong></p>
+
+
+
+<p>for å installere FTP starter vi med å bare oppdatere:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo apt update</code></pre>
+
+
+
+<figure class="wp-block-image is-resized"><img loading="lazy" src="./Hvordan sette opp en server – ubuntu server_files/sudo-apt-get-update-ubuntu-vsftpd.png" alt="System Updating Repositories." width="609" height="85"></figure>
+
+
+
+<p>neste er å installere <strong>vsftpd</strong> med denne kommandoen: </p>
+
+
+
+<pre class="wp-block-code"><code>sudo apt install vsftpd
+</code></pre>
+
+
+
+<p>dette er sån ca hvordan det skal se ut:</p>
+
+
+
+<figure class="wp-block-image is-resized"><img loading="lazy" src="./Hvordan sette opp en server – ubuntu server_files/install-vsftpd-ubuntu-ftp.png" alt="vsftpd installation process." width="610" height="333"></figure>
+
+
+
+<p>for å starte og aktivere, skriv disse kommandoene:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo systemctl start vsftpd
+
+sudo systemctl enable vsftpd</code></pre>
+
+
+
+<p>Nå lager vi en sikkerhetskopi med denne kommandoen:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo cp /etc/vsftpd.conf  /etc/vsftpd.conf_default
+</code></pre>
+
+
+
+<p>Nå kan du lage en FTP bruker, det gjør du med følgene kommandoer:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo useradd -m testuser
+
+sudo passwd testuser</code></pre>
+
+
+
+<p>systemet burde spørre om å lage et passord.</p>
+
+
+
+<p>for å passe på at brannmuren ikke blokker FTP, skriver du disse kommandoene:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo ufw allow 20/tcp
+
+sudo ufw allow 21/tcp</code></pre>
+
+
+
+<figure class="wp-block-image"><img src="./Hvordan sette opp en server – ubuntu server_files/configure-firewall-to-allow-ftp-traffic.png" alt="Configure firewall to allow FTP traffic."></figure>
+
+
+
+<p>dette er sån ca hva du burde få opp.</p>
+
+
+
+<p>Neste er å koble til Ubuntu FTP server. Da skriver du denne kommandoen: </p>
+
+
+
+<pre class="wp-block-code"><code>sudo ftp ubuntu-ftp</code></pre>
+
+
+
+<p>Bytt “ubuntu-ftp” med navnet på systemet ditt. Det tar du fra kommando linjen.</p>
+
+
+
+<p>Etter logger du inn med det passordet og brukernavnet du lagde. Da burde du være logget inn på FTP.</p>
+
+
+
+<p>Nå kan du sikre Ubuntu vsftpd serveren, med å endre standard katalogen. Det gjør du med denne kommandoen: </p>
+
+
+
+<pre class="wp-block-code"><code>sudo mkdir /srv/ftp/new_location
+
+sudo usermod -d /srv/ftp/new_location ftp</code></pre>
+
+
+
+<p>Restart vsftpd for å ta i bruk endringene.</p>
+
+
+
+<p>Hvis du vil laste opp filer rediger vsftpd.conf med å skrive disse kommandoen:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo nano /etc/vsftpd.conf
+</code></pre>
+
+
+
+<p>skift “<em><strong>write_enable=NO</strong></em>” og skift det til “<strong>YES</strong>“</p>
+
+
+
+<figure class="wp-block-image"><img src="./Hvordan sette opp en server – ubuntu server_files/write-enable-yes-vsftpd-conf.png" alt="Write_Enable option in vsftpd.config file."></figure>
+
+
+
+<p>Lagre filen, exit og restart FTP med denne kommandoen:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo systemctl restart vsftpd.service
+</code></pre>
+
+
+
+<p>Skriv denne kommandoen:</p>
+
+
+
+<pre class="wp-block-code"><code>chroot_local_user=YES
+</code></pre>
+
+
+
+<figure class="wp-block-image"><img src="./Hvordan sette opp en server – ubuntu server_files/chroot-local-user-yes-vsftpd-conf.png" alt="Command to limit users to their home directory."></figure>
+
+
+
+<p>Nå endrer du i vsftpd.conf med disse kommandoene:</p>
+
+
+
+<pre class="wp-block-code"><code>chroot_local_user=YES
+
+chroot_list_file=/etc/vsftpd.chroot_list</code></pre>
+
+
+
+<figure class="wp-block-image"><img src="./Hvordan sette opp en server – ubuntu server_files/chroot-list-file-vsftpd.png" alt="Chroot list to limit user access."></figure>
+
+
+
+<p>Restart vsftpd med denne koden:</p>
+
+
+
+<pre class="wp-block-code"><code>sudo systemctl restart vsftpd.service
+</code></pre>
+
+
+
+<p>Neste åpner du<strong> vsftpd.conf</strong> og bytt  ssl_enable=NO til ssl_enable=YES.</p>
+
+
+
+<pre class="wp-block-code"><code>ssl_enable=YES</code></pre>
+
+
+
+<p>Nå har du installert alle tingene du trenger inkudert LAMP, SSH, statisk IP, brannmur, wordpress og FTP.</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer default-max-width">
+		<div class="posted-by"><span class="posted-on">Published <time class="entry-date published updated" datetime="2021-11-30T09:14:59+00:00">November 30, 2021</time></span><span class="byline">By <a href="http://139.98.34.212/wordpress/index.php/author/jeff/" rel="author">jeff</a></span></div><div class="post-taxonomies"><span class="cat-links">Categorized as <a href="http://139.98.34.212/wordpress/index.php/category/uncategorized/" rel="category tag">Uncategorized</a> </span></div>	</footer><!-- .entry-footer -->
+
+				
+</article><!-- #post-1 -->
+
+<div id="comments" class="comments-area default-max-width show-avatars">
+
+			<h2 class="comments-title">
+							2 comments					</h2><!-- .comments-title -->
+
+		<ol class="comment-list">
+					<li id="comment-1" class="comment even thread-even depth-1">
+			<article id="div-comment-1" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./Hvordan sette opp en server – ubuntu server_files/ca06b77efcabd37ff60d84fd4791b0e6.png" srcset="http://0.gravatar.com/avatar/ca06b77efcabd37ff60d84fd4791b0e6?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy">						<b class="fn"><a href="https://wordpress.org/" rel="external nofollow ugc" class="url">joe</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://139.98.34.212/wordpress/index.php/2021/11/30/hello-world/#comment-1"><time datetime="2021-11-30T09:14:59+00:00">November 30, 2021 at 9:14 am</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>denne nettsiden er best, viser kjempe bra og grundig hva jeg skal gjøre. Jeg skjønner virkelig lett og det er veldig bra skrevet. </p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="http://139.98.34.212/wordpress/index.php/2021/11/30/hello-world/?replytocom=1#respond" data-commentid="1" data-postid="1" data-belowelement="div-comment-1" data-respondelement="respond" data-replyto="Reply to joe" aria-label="Reply to joe">Reply</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-2" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-2" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="./Hvordan sette opp en server – ubuntu server_files/f4024799ea5484e680bae2949e109d53.png" srcset="http://0.gravatar.com/avatar/f4024799ea5484e680bae2949e109d53?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy">						<b class="fn"><a href="http://joe.com/" rel="external nofollow ugc" class="url">Joe Cheese</a></b> <span class="says">says:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="http://139.98.34.212/wordpress/index.php/2021/11/30/hello-world/#comment-2"><time datetime="2021-12-14T07:07:24+00:00">December 14, 2021 at 7:07 am</time></a>					</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>asdf ghjkl a lidsjk amsjk lgn</p>
+				</div><!-- .comment-content -->
+</div><!-- #comments -->
+			</main><!-- #main -->
+		</div><!-- #primary -->
+	</div><!-- #content -->
+
+	
+	<aside class="widget-area">
+		<section id="block-2" class="widget widget_block widget_search"><form role="search" method="get" action="http://139.98.34.212/wordpress/" class="wp-block-search__button-outside wp-block-search__text-button wp-block-search"><label for="wp-block-search__input-1" class="wp-block-search__label">Search</label><div class="wp-block-search__inside-wrapper"><input type="search" id="wp-block-search__input-1" class="wp-block-search__input" name="s" value="" placeholder="" required=""><button type="submit" class="wp-block-search__button ">Search</button></div></form></section><section id="block-3" class="widget widget_block"><div class="wp-block-group"><div class="wp-block-group__inner-container"><h2>Recent Posts</h2><ul class="wp-block-latest-posts__list wp-block-latest-posts"><li><a href="http://139.98.34.212/wordpress/index.php/2021/11/30/hello-world/">Hvordan sette opp en server</a></li>
+</ul></div></div></section><section id="block-4" class="widget widget_block"><div class="wp-block-group"><div class="wp-block-group__inner-container"><h2>Recent Comments</h2><ol class="wp-block-latest-comments"><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="http://joe.com/">Joe Cheese</a> on <a class="wp-block-latest-comments__comment-link" href="http://139.98.34.212/wordpress/index.php/2021/11/30/hello-world/#comment-2">Hvordan sette opp en server</a></footer></article></li><li class="wp-block-latest-comments__comment"><article><footer class="wp-block-latest-comments__comment-meta"><a class="wp-block-latest-comments__comment-author" href="https://wordpress.org/">joe</a> on <a class="wp-block-latest-comments__comment-link" href="http://139.98.34.212/wordpress/index.php/2021/11/30/hello-world/#comment-1">Hvordan sette opp en server</a></footer></article></li></ol></div></div></section>	</aside><!-- .widget-area -->
+
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+
+				<div class="site-info">
+			<div class="site-name">
+																						<a href="http://139.98.34.212/wordpress/">ubuntu server</a>
+																		</div><!-- .site-name -->
+			<div class="powered-by">
+				Proudly powered by <a href="https://wordpress.org/">WordPress</a>.			</div><!-- .powered-by -->
+
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+
+</div><!-- #page -->
+
+<script>document.body.classList.remove("no-js");</script>	<script>
+	if ( -1 !== navigator.userAgent.indexOf( 'MSIE' ) || -1 !== navigator.appVersion.indexOf( 'Trident/' ) ) {
+		document.body.classList.add( 'is-IE' );
+	}
+	</script>
+	<script src="./Hvordan sette opp en server – ubuntu server_files/comment-reply.min.js.last ned" id="comment-reply-js"></script>
+<script id="twenty-twenty-one-ie11-polyfills-js-after">
+( Element.prototype.matches && Element.prototype.closest && window.NodeList && NodeList.prototype.forEach ) || document.write( '<script src="http://139.98.34.212/wordpress/wp-content/themes/twentytwentyone/assets/js/polyfills.js?ver=1.4"></scr' + 'ipt>' );
+</script>
+<script src="./Hvordan sette opp en server – ubuntu server_files/responsive-embeds.js.last ned" id="twenty-twenty-one-responsive-embeds-script-js"></script>
+<script src="./Hvordan sette opp en server – ubuntu server_files/wp-embed.min.js.last ned" id="wp-embed-js"></script>
+	<script>
+	/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",(function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())}),!1);
+	</script>
+	
+
+
+</body></html>
